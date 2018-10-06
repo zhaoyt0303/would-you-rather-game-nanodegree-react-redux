@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
@@ -16,7 +16,7 @@ class App extends Component {
     const { dispatch } = this.props
     dispatch(handleInitialData())
   }
-  
+
   render() {
     return (
       <Router>

@@ -7,13 +7,12 @@ class QuestionPage extends Component {
   state = {
     selectedAnswer: ''
   }
-  
+
   handleSaveAnswer(e) {
     e.preventDefault()
     const { dispatch, authedUser, id  } = this.props
     const { selectedAnswer } = this.state
-    
-    // After I click submit, expect to see the question details page, however, I could not see the option that I pick. I console.log answer at line 43, it is undefined. But if I go to the home dashboard or other pages, they all work. Really do not know why
+
     dispatch(handleAddAnswer({
       qid:id,
       authedUser,
@@ -30,7 +29,7 @@ class QuestionPage extends Component {
   render() {
     const { selectedAnswer } = this.state;
     const {question, optionOneVotes, optionTwoVotes, totalVotes, percentageOptionOne, percentageOptionTwo, answered, answer, authorName, avatar} = this.props
-    
+
     if (!question) {
         return <Redirect to="/not-found"/>
       }

@@ -16,7 +16,7 @@ class Login extends Component {
       value
     }))
   }
-  
+
   handleSubmit = (e) => {
     e.preventDefault()
     const { value } = this.state
@@ -27,10 +27,10 @@ class Login extends Component {
       toHome: true
     }))
   }
-  
+
   render() {
     const { toHome } = this.state
-    const { from } = this.props.location.state || { from: { pathname: '/dashboard'}}
+    const { from } = this.props.location.state || { from: { pathname: '/home'}}
 
     if (toHome === true) {
       return <Redirect to={from} />
@@ -42,10 +42,10 @@ class Login extends Component {
           <h3> Welcome to the Would You Rather App!</h3>
           <p> Please sign in to continue</p>
         </div>
-        
+
         <div id='login-body'>
           <img src={Image} alt="Welcome" height="42" width="42"></img>
-          
+
           <h3> Sign in </h3>
           <form onSubmit={this.handleSubmit}>
             <label className='user-dropdown-field'>

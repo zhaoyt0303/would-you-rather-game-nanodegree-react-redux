@@ -10,14 +10,14 @@ class QuestionPage extends Component {
 
   handleSaveAnswer(e) {
     e.preventDefault()
-    const { dispatch, authedUser, id  } = this.props
+    const { dispatch, authedUser, id, handleMyAddAnswer  } = this.props
     const { selectedAnswer } = this.state
 
-    dispatch(handleAddAnswer({
+    handleMyAddAnswer({
       qid:id,
       authedUser,
       answer: selectedAnswer,
-    }))
+    })
   }
 
   chooseAnswer = (answer) => {
@@ -109,4 +109,11 @@ function mapStateToProps ({questions, authedUser, users}, props) {
     id
   }
 }
-export default connect(mapStateToProps)(QuestionPage)
+
+function mapDispatchToProps (dispatch) {
+  return {
+    handleMyAddAnswer: (info) => dispatch(handleAddAnswer(info))
+  }
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionPage)
